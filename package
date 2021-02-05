@@ -1,21 +1,21 @@
 {
-    'author': u'',
-    'description': u'',
-    'download_url': '',
+    'author': u'Marius Rieder <marius.rieder@scs.ch>',
+    'description': u'Monitor Outlets and Sensors connected to a Dell Rack PDU',
+    'download_url': 'https://github.com/jiuka/checkmk_dell_rackpdu/releases',
     'files': {
-        'agent_based': [],
+        'agent_based': ['dell_rackpdu_sensor_humidity.py', 'dell_rackpdu_sensor_temp.py'],
         'agents': [],
         'checkman': [],
-        'checks': [],
+        'checks': ['dell_rackpdu_powerswitch'],
         'doc': [],
         'inventory': [],
         'notifications': [],
         'pnp-templates': [],
         'web': []
     },
-    'name': '',
-    'title': u'',
-    'version': '0.1',
-    'version.min_required': '2.0.0',
-    'version.packaged': '2.0.0'
+    'name': 'dell_rackpdu',
+    'title': u'Dell RacpPDU SNMP Checks for Cechkmk',
+    'version': '1.0',
+    'version.min_required': '2.0.0b5',
+    'version.packaged': '2.0.0b5'
 }
