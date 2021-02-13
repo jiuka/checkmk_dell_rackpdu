@@ -48,8 +48,6 @@ def parse_dell_rackpdu_powerswitch(info):
     outlet_infos, outlet_configs = info
 
     for idx, outlet_info in enumerate(outlet_infos):
-        outlet_config = outlet_configs[idx]
-
         outlet_name, power_str, power_max_str, device_state = outlet_info
         warn, crit = outlet_configs[idx]
 

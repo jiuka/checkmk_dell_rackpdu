@@ -39,7 +39,6 @@ from .agent_based_api.v1 import (
     all_of,
     exists,
     register,
-    Result,
     Service,
     SNMPTree,
     startswith,
@@ -110,7 +109,6 @@ def discovery_dell_rackpdu_sensor_temp(section):
 
 def check_dell_rackpdu_sensor_temp(item, params, section):
     if item not in section:
-        yield Result(state=State.UNKNOWN, summary='Sensor %s not found.' % item)
         return
 
     temperature, status, warn, crit = section[item]

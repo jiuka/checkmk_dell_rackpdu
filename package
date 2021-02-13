@@ -14,8 +14,9 @@
         'web': []
     },
     'name': 'dell_rackpdu',
-    'title': u'Dell RacpPDU SNMP Checks for Cechkmk',
-    'version': '1.0',
+    'title': u'Dell RackPDU SNMP Checks for Checkmk',
+    'version': '1.1',
     'version.min_required': '2.0.0b5',
-    'version.packaged': '2.0.0b5'
+    'version.packaged': '2.0.0b5',
+    'version.usable_until': '2.1.0'
 }

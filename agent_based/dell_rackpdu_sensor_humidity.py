@@ -38,7 +38,6 @@ from .agent_based_api.v1 import (
     exists,
     register,
     render,
-    Result,
     Service,
     SNMPTree,
     startswith,
@@ -107,7 +106,6 @@ def discovery_dell_rackpdu_sensor_humidity(section):
 
 def check_dell_rackpdu_sensor_humidity(item, params, section):
     if item not in section:
-        yield Result(state=State.UNKNOWN, summary='Sensor %s not found.' % item)
         return
 
     humidity, status, warn, crit = section[item]
