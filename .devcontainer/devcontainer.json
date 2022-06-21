@@ -5,7 +5,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		// Update 'VARIANT' to pick an Ubuntu version: focal, bionic
-		"args": { "VARIANT": "2.0.0-latest" }
+		"args": { "VARIANT": "2.1.0-latest" }
 	},
 
 	// Set *default* container specific settings.json values on container create.
@@ -26,7 +26,7 @@
 	"postCreateCommand": ".devcontainer/symlink.sh",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "cmk",
+	"containerUser": "cmk",
 
 	"remoteEnv": {
 		"PATH": "${containerEnv:PATH}:/omd/sites/cmk/bin:/omd/sites/cmk/local/lib/python3/bin/",

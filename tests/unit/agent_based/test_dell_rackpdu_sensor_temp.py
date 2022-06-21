@@ -81,7 +81,11 @@ def test_discovery_dell_rackpdu_sensor_temp(section, result):
         ]
     ),
 ])
-def test_check_dell_rackpdu_sensor_temp(item, params, section, result):
+def test_check_dell_rackpdu_sensor_temp(item, params, section, result, mocker):
+    mocker.patch(
+        'cmk.base.plugins.agent_based.dell_rackpdu_sensor_temp.get_value_store',
+        return_value={}
+    )
     assert list(dell_rackpdu_sensor_temp.check_dell_rackpdu_sensor_temp(item, params, section)) == result
 
 
@@ -123,5 +127,9 @@ def test_check_dell_rackpdu_sensor_temp(item, params, section, result):
         Result(state=State.OK, summary='Temperature: 295.5K'),
     ),
 ])
-def test_check_dell_rackpdu_sensor_temp_w_param(params, result):
+def test_check_dell_rackpdu_sensor_temp_w_param(params, result, mocker):
+    mocker.patch(
+        'cmk.base.plugins.agent_based.dell_rackpdu_sensor_temp.get_value_store',
+        return_value={}
+    )
     assert result in list(dell_rackpdu_sensor_temp.check_dell_rackpdu_sensor_temp('SensorName', params, {'SensorName': [22.4, 4, 60, 59]},))

@@ -16,14 +16,6 @@ Checks the Humidity sensors and can be adjusted by the `humidity` wato rule.
 
 Checks the Temperature sensors and can be adjusted by the `temperature` wato rule.
 
-### dell_rackpdu_power
-
-Checks the Humidity sensors and can be adjusted by the `humidity` wato rule.
-
-### dell_rackpdu_powerswitch
-
-Checks the Poweroutlets and can be adjusted by the `ups_outphase` wato rule.
-
 ## Development
 
 For the best development experience use [VSCode](https://code.visualstudio.com/) with the [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. This maps your workspace into a checkmk docker container giving you access to the python environment and libraries the installed extension has.

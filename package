@@ -6,7 +6,7 @@
         'agent_based': ['dell_rackpdu_sensor_humidity.py', 'dell_rackpdu_sensor_temp.py'],
         'agents': [],
         'checkman': [],
-        'checks': ['dell_rackpdu_powerswitch'],
+        'checks': [],
         'doc': [],
         'inventory': [],
         'notifications': [],
@@ -15,8 +15,8 @@
     },
     'name': 'dell_rackpdu',
     'title': u'Dell RackPDU SNMP Checks for Checkmk',
-    'version': '1.1',
-    'version.min_required': '2.0.0b5',
-    'version.packaged': '2.0.0b5',
-    'version.usable_until': '2.1.0'
+    'version': '1.2',
+    'version.min_required': '2.1.0',
+    'version.packaged': '2.1.0',
+    'version.usable_until': '2.2.0'
 }
