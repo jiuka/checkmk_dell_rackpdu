@@ -36,6 +36,7 @@
 # .1.3.6.1.4.1.674.10903.200.2.200.150.2.3.1.9.1 2 --> DellrPDU-MIB::rPDUSnsorTempCfgAlarmGeneration.1
 
 from .agent_based_api.v1 import (
+    get_value_store,
     all_of,
     exists,
     register,
@@ -117,6 +118,7 @@ def check_dell_rackpdu_sensor_temp(item, params, section):
         reading=temperature,
         params=params,
         unique_name='heck_dell_rackpdu_sensor_temp.%s' % item,
+        value_store=get_value_store(),
         dev_levels=(warn, crit),
         dev_status=DELL_RACKPDU_SENSOR_LEVEL_STATES[status],
         dev_status_name=item,
