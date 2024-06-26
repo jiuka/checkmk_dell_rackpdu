@@ -34,7 +34,6 @@
 
 from cmk.agent_based.v2 import (
     all_of,
-    check_levels,
     CheckPlugin,
     exists,
     render,
@@ -44,6 +43,7 @@ from cmk.agent_based.v2 import (
     startswith,
     State,
 )
+from cmk.agent_based.v1 import check_levels
 
 DELL_RACKPDU_SENSOR_LEVEL_STATES = {
     1: State.CRIT,  # not present
@@ -115,7 +115,7 @@ def check_dell_rackpdu_sensor_humidity(item, params, section):
         value=humidity,
         metric_name='humidity',
         levels_upper=params.get('levels', None),
-        levels_lower=params.get('levels_lower', ('fixed', (warn, crit))),
+        levels_lower=params.get('levels_lower', (warn, crit)),
         render_func=render.percent,
     )
 

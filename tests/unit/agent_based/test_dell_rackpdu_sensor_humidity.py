@@ -69,7 +69,7 @@ def test_discovery_dell_rackpdu_sensor_humidity(section, result):
         ]
     ),
     (
-        'SensorName', {'levels_lower': ('fixed', (30, 20))},
+        'SensorName', {'levels_lower': (30, 20)},
         {'SensorName': [28, 4, 10, 0]},
         [
             Result(state=State.WARN, summary='28.00% (warn/crit below 30.00%/20.00%)'),
@@ -77,7 +77,7 @@ def test_discovery_dell_rackpdu_sensor_humidity(section, result):
         ]
     ),
     (
-        'SensorName', {'levels_lower': ('fixed', (30, 29))},
+        'SensorName', {'levels_lower': (30, 29)},
         {'SensorName': [28, 4, 10, 0]},
         [
             Result(state=State.CRIT, summary='28.00% (warn/crit below 30.00%/29.00%)'),
@@ -85,7 +85,7 @@ def test_discovery_dell_rackpdu_sensor_humidity(section, result):
         ]
     ),
     (
-        'SensorName', {'levels': ('fixed', (20, 30))},
+        'SensorName', {'levels': (20, 30)},
         {'SensorName': [28, 4, 10, 0]},
         [
             Result(state=State.WARN, summary='28.00% (warn/crit at 20.00%/30.00%)'),
@@ -93,7 +93,7 @@ def test_discovery_dell_rackpdu_sensor_humidity(section, result):
         ]
     ),
     (
-        'SensorName', {'levels': ('fixed', (20, 25))},
+        'SensorName', {'levels': (20, 25)},
         {'SensorName': [28, 4, 10, 0]},
         [
             Result(state=State.CRIT, summary='28.00% (warn/crit at 20.00%/25.00%)'),
