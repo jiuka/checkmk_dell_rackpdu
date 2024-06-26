@@ -3,20 +3,15 @@
     'description': u'Monitor Outlets and Sensors connected to a Dell Rack PDU',
     'download_url': 'https://github.com/jiuka/checkmk_dell_rackpdu/releases',
     'files': {
-        'agent_based': ['dell_rackpdu_sensor_humidity.py', 'dell_rackpdu_sensor_temp.py'],
-        'agents': [],
-        'checkman': [],
-        'checks': [],
-        'doc': [],
-        'inventory': [],
-        'notifications': [],
-        'pnp-templates': [],
-        'web': []
+        'cmk_addons_plugins': [
+            'dell_rackpdu/agent_based/dell_rackpdu_sensor_humidity.py',
+            'dell_rackpdu/agent_based/dell_rackpdu_sensor_temp.py',
+        ]
     },
     'name': 'dell_rackpdu',
     'title': u'Dell RackPDU SNMP Checks for Checkmk',
-    'version': '1.2.1',
-    'version.min_required': '2.1.0',
-    'version.packaged': '2.2.0',
-    'version.usable_until': '2.3.0'
+    'version': '2.3.0-0',
+    'version.min_required': '2.3.0p3',
+    'version.packaged': '2.3.0',
+    'version.usable_until': '2.4.0'
 }

@@ -3,7 +3,7 @@
 #
 # checkmk_dell_rackpdu - Checkmk extension for Dell Rack PDUs
 #
-# Copyright (C) 2021  Marius Rieder <marius.rieder@scs.ch>
+# Copyright (C) 2021-2024  Marius Rieder <marius.rieder@durchmesser.ch>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -32,13 +32,14 @@
 # .1.3.6.1.4.1.674.10903.200.2.200.150.3.3.1.6.1 2 --> DellrPDU-MIB::rPDUSnsorHumCfgAlarmGeneration.1
 
 
-from .agent_based_api.v1 import (
+from cmk.agent_based.v2 import (
     all_of,
     check_levels,
+    CheckPlugin,
     exists,
-    register,
     render,
     Service,
+    SNMPSection,
     SNMPTree,
     startswith,
     State,
@@ -71,7 +72,7 @@ def parse_dell_rackpdu_sensor_humidity(string_table):
     return parsed
 
 
-register.snmp_section(
+snmp_section_dell_rackpdu_sensor_humidity = SNMPSection(
     name='dell_rackpdu_sensor_humidity',
     detect=all_of(
         startswith('.1.3.6.1.2.1.1.1.0', 'DELL Web/SNMP'),
@@ -114,12 +115,12 @@ def check_dell_rackpdu_sensor_humidity(item, params, section):
         value=humidity,
         metric_name='humidity',
         levels_upper=params.get('levels', None),
-        levels_lower=params.get('levels_lower', (warn, crit)),
+        levels_lower=params.get('levels_lower', ('fixed', (warn, crit))),
         render_func=render.percent,
     )
 
 
-register.check_plugin(
+check_plugin_dell_rackpdu_sensor_humidity = CheckPlugin(
     name='dell_rackpdu_sensor_humidity',
     service_name='%s Humidity',
     discovery_function=discovery_dell_rackpdu_sensor_humidity,
