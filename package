@@ -1,6 +1,6 @@
 {
-    'author': u'Marius Rieder <marius.rieder@scs.ch>',
-    'description': u'Monitor Outlets and Sensors connected to a Dell Rack PDU',
+    'author': u'Marius Rieder <marius.rieder@durchmesser.ch>',
+    'description': u'Monitor Sensors connected to a Dell Rack PDU',
     'download_url': 'https://github.com/jiuka/checkmk_dell_rackpdu/releases',
     'files': {
         'cmk_addons_plugins': [
