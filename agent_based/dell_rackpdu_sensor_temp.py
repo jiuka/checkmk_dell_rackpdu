@@ -3,7 +3,7 @@
 #
 # checkmk_dell_rackpdu - Checkmk extension for Dell Rack PDUs
 #
-# Copyright (C) 2021  Marius Rieder <marius.rieder@scs.ch>
+# Copyright (C) 2021-2024  Marius Rieder <marius.rieder@durchmesser.ch>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -35,19 +35,18 @@
 # .1.3.6.1.4.1.674.10903.200.2.200.150.2.3.1.8.1 1 --> DellrPDU-MIB::rPDUSnsorTempCfgTempHysteresisC.1
 # .1.3.6.1.4.1.674.10903.200.2.200.150.2.3.1.9.1 2 --> DellrPDU-MIB::rPDUSnsorTempCfgAlarmGeneration.1
 
-from .agent_based_api.v1 import (
-    get_value_store,
+from cmk.agent_based.v2 import (
     all_of,
+    CheckPlugin,
     exists,
-    register,
+    get_value_store,
     Service,
+    SNMPSection,
     SNMPTree,
     startswith,
     State,
 )
-from .utils.temperature import (
-    check_temperature,
-)
+from cmk.plugins.lib.temperature import check_temperature
 
 DELL_RACKPDU_SENSOR_LEVEL_STATES = {
     1: State.CRIT,  # not present
@@ -75,7 +74,7 @@ def parse_dell_rackpdu_sensor_temp(string_table):
     return parsed
 
 
-register.snmp_section(
+snmp_section_dell_rackpdu_sensor_temp = SNMPSection(
     name='dell_rackpdu_sensor_temp',
     detect=all_of(
         startswith('.1.3.6.1.2.1.1.1.0', 'DELL Web/SNMP'),
@@ -125,7 +124,7 @@ def check_dell_rackpdu_sensor_temp(item, params, section):
     )
 
 
-register.check_plugin(
+check_plugin_dell_rackpdu_sensor_temp = CheckPlugin(
     name='dell_rackpdu_sensor_temp',
     service_name='%s Temperature',
     discovery_function=discovery_dell_rackpdu_sensor_temp,
